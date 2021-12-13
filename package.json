@@ -16,11 +16,16 @@
     "format:check": "prettier --check \"{components,content,docs,pages,styles,utils}/**/*.{js,jsx,ts,tsx,css,scss,json,yaml,md}\""
   },
   "dependencies": {
+    "@stripe/stripe-js": "^1.22.0",
+    "axios": "^0.24.0",
+    "firebase-admin": "^10.0.0",
+    "micro": "^9.3.4",
     "next": "latest",
     "next-pwa": "^5.4.4",
     "nextjs-progressbar": "^0.0.13",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "stripe": "^8.193.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
