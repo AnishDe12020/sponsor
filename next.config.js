@@ -1,4 +1,4 @@
-module.exports = withPWA({
+module.exports = {
   images: {
     domains: ["res.cloudinary.com", "store.storeimages.cdn-apple.com"],
   },
@@ -6,4 +6,4 @@ module.exports = withPWA({
   env: {
     stripe_public_key: process.env.STRIPE_PUBLIC_KEY,
   },
-});
+}
