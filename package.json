@@ -18,8 +18,6 @@
   "dependencies": {
     "@stripe/stripe-js": "^1.22.0",
     "axios": "^0.24.0",
-    "firebase-admin": "^10.0.0",
-    "micro": "^9.3.4",
     "next": "latest",
     "nextjs-progressbar": "^0.0.13",
     "react": "^17.0.2",
