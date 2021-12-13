@@ -1,7 +1,6 @@
-/* eslint-disable import/no-anonymous-default-export */
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-export default async (req: any, res: any) => {
+const handler = async (req: any, res: any) => {
   const { amount, email } = req.body;
 
   const transformedItems = [
@@ -22,8 +21,14 @@ export default async (req: any, res: any) => {
     billing_address_collection: "auto",
     line_items: transformedItems,
     mode: "payment",
-    success_url: "http://localhost:3000/success",
-    cancel_url: "http://localhost:3000/",
+    success_url:
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000/success"
+        : "https://sponsor.avneesh.tech/success",
+    cancel_url:
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://sponsor.avneesh.tech",
     metadata: {
       email,
     },
@@ -31,3 +36,5 @@ export default async (req: any, res: any) => {
 
   res.status(200).json({ id: session.id });
 };
+
+export default handler;
