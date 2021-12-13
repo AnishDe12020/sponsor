@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-screen min-h-screen overflow-x-hidden bg-background justify-center items-center">
       <Head>
-        <title>Create Next App</title>
+        <title>Sponsor Avneesh</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="absolute top-10 left-10">
@@ -44,7 +44,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="w-[500px] flex flex-col space-y-5 rounded-xl items-center p-5 bg-[#1DC3F0]/50">
+      <div className="sm:w-[500px] w-[300px] flex flex-col space-y-5 shadow-xl rounded-xl items-center p-5 bg-[#1DC3F0]/50">
         <div className="flex items-center justify-between w-full">
           {defaultAmounts.map(buttonAmount => (
             <button
