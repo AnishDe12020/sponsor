@@ -24,6 +24,7 @@ const handler = async (req: any, res: any) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     billing_address_collection: "auto",
+    submit_type: "donate",
     line_items: transformedItems,
     mode: "payment",
     success_url:
