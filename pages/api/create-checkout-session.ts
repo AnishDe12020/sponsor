@@ -1,7 +1,7 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const handler = async (req: any, res: any) => {
-  const { amount, email } = req.body;
+  const { amount } = req.body;
 
   const transformedItems = [
     {
@@ -29,9 +29,6 @@ const handler = async (req: any, res: any) => {
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
         : "https://sponsor.avneesh.tech",
-    metadata: {
-      email,
-    },
   });
 
   res.status(200).json({ id: session.id });
