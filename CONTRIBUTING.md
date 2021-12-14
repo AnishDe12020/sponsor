@@ -31,7 +31,7 @@ yarn dev
 
 ## Environment Variables
 
-You DO NOT need any env's to run this project at the moment.
+You need the stripe private and public keys to be added in `.env.local`. You can refer to `.env.sample` for how it should be
 
 ## 🛡️ License
 
