@@ -6,7 +6,7 @@ import { useState } from "react";
 const stripePromise = loadStripe(process.env.stripe_public_key!);
 
 export default function Home() {
-  const [amount, setAmount] = useState<number | null>(null);
+  const [amount, setAmount] = useState<number | null>(500);
   const defaultAmounts = [200, 500, 1000];
 
   const createCheckOutSession = async () => {
@@ -28,8 +28,7 @@ export default function Home() {
   return (
     <div className="flex w-screen flex-col-reverse sm:flex-row relative min-h-screen bg-background sm:p-20 p-10 sm:justify-evenly items-center">
       <Head>
-        <title>Sponsor Avneesh</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.svg" />
       </Head>
       <div className="w-screen absolute bottom-0 rounded-b-lg mt-10 h-28 sm:h-40 bg-[#172241]"></div>
       <div className="sm:-mb-24 mb-12 mt-20 sm:mt-0">
