@@ -28,13 +28,13 @@ export default function Home() {
   };
 
   return (
-    <div className="flex w-screen relative h-screen bg-background p-20 justify-evenly items-center">
+    <div className="flex w-screen flex-col-reverse sm:flex-row relative min-h-screen bg-background sm:p-20 p-10 sm:justify-evenly items-center">
       <Head>
         <title>Sponsor Avneesh</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="w-full sm:flex hidden absolute bottom-0 rounded-b-lg h-40 bg-[#172241]"></div>
-      <div className="-mb-24 sm:flex hidden">
+      <div className="w-screen absolute bottom-0 rounded-b-lg mt-10 h-40 bg-[#172241]"></div>
+      <div className="sm:-mb-24 mt-20 sm:mt-0">
         <Image
           src="/Illustration.svg"
           alt="logo"
@@ -44,11 +44,11 @@ export default function Home() {
         />
       </div>
 
-      <div className="flex flex-col items-center sm:items-start w-screen h-screen sm:w-auto sm:h-auto pt-10 sm:pt-0">
+      <div className="flex flex-col items-center sm:items-start w-screen sm:w-auto sm:h-auto">
         <div className="relative w-60 h-16">
           <Image src="/logo.svg" alt="logo" layout="fill" objectFit="contain" />
         </div>
-        <div className="sm:w-[436px] w-[300px] z-50 mt-10 flex flex-col space-y-5 shadow-xl rounded-md items-center px-5 sm:px-10 p-10 bg-[#3A4462]">
+        <div className="sm:w-[436px] w-[90vw] z-50 mt-10 flex flex-col space-y-5 shadow-xl rounded-md items-center px-5 sm:px-10 p-10 bg-[#3A4462]">
           <h2 className="font-semibold font-ClashDisplay text-3xl text-accent">
             Love what I do? Feel free to support me with a donation!
           </h2>

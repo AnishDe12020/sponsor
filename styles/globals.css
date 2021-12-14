@@ -4,7 +4,7 @@
 
 @layer components {
   body {
-    @apply font-ClashDisplay w-screen h-screen bg-background;
+    @apply font-ClashDisplay overflow-x-hidden w-screen min-h-screen bg-background;
   }
 }
 
