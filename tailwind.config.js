@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        ClashDisplay: ["ClashDisplay-Variable"],
+      },
       colors: {
         accent: "#52DEE5",
         background: "#222E50",

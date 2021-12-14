@@ -54,8 +54,8 @@ export default function Home() {
             height={70}
             objectFit="contain"
           />
-          <div className="sm:w-[500px] w-[300px] z-50 mt-10 flex flex-col space-y-5 shadow-xl rounded-md items-center p-5 bg-[#3A4462]">
-            <h2 className="font-semibold text-3xl text-accent">
+          <div className="sm:w-[436px] w-[300px] z-50 mt-10 flex flex-col space-y-5 shadow-xl rounded-md items-center p-10 bg-[#3A4462]">
+            <h2 className="font-semibold font-ClashDisplay text-3xl text-accent">
               Love what I do? Feel free to support me with a donation!
             </h2>
             <p className="text-[#E3E3E3]">

@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  overflow-x: hidden;
+@layer components {
+  body {
+    @apply overflow-x-hidden font-ClashDisplay;
+  }
 }
 
 body::-webkit-scrollbar,
@@ -19,4 +21,14 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-track {
   background: #222e50 !important;
+}
+
+@font-face {
+  font-family: "ClashDisplay-Variable";
+  src: url("/fonts/ClashDisplay-Variable.woff2") format("woff2"),
+    url("/fonts/ClashDisplay-Variable.woff") format("woff"),
+    url("/fonts/ClashDisplay-Variable.ttf") format("truetype");
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
 }
