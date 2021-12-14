@@ -3,9 +3,7 @@ import Image from "next/image";
 import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
-const stripePromise = loadStripe(
-  process.env.stripe_public_key ? process.env.stripe_public_key : ""
-);
+const stripePromise = loadStripe(process.env.stripe_public_key!);
 
 export default function Home() {
   const [amount, setAmount] = useState<number | null>(null);
@@ -59,7 +57,7 @@ export default function Home() {
           <input
             type="number"
             value={amount ? amount : ""}
-            className="bg-[#E9F9FA]/30 px-6 py-3 focus:outline-none rounded-lg w-full"
+            className="bg-[#E9F9FA]/30 px-6 py-3 focus:outline-none text-white rounded-lg w-full"
             placeholder="Enter Amount"
             onChange={e => setAmount(parseInt(e.target.value))}
           />
@@ -78,9 +76,12 @@ export default function Home() {
           </div>
 
           <button
+            disabled={!amount}
             onClick={createCheckOutSession}
             role="link"
-            className="bg-accent text-xl mt-4 font-semibold w-full px-6 py-3 rounded-lg"
+            className={`bg-accent text-xl mt-4 font-semibold w-full px-6 py-3 rounded-lg ${
+              amount ? "" : "opacity-50 cursor-not-allowed"
+            }`}
           >
             Sponsor
           </button>

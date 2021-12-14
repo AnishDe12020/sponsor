@@ -1,5 +1,10 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
+const URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://sponsor.avneesh.tech";
+
 const handler = async (req: any, res: any) => {
   const { amount } = req.body;
 
@@ -23,12 +28,9 @@ const handler = async (req: any, res: any) => {
     mode: "payment",
     success_url:
       process.env.NODE_ENV === "development"
-        ? "http://localhost:3000/success"
-        : "https://sponsor.avneesh.tech/success",
-    cancel_url:
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:3000"
-        : "https://sponsor.avneesh.tech",
+        ? `${URL}/success`
+        : `${URL}/success`,
+    cancel_url: process.env.NODE_ENV === "development" ? `${URL}` : `${URL}`,
   });
 
   res.status(200).json({ id: session.id });
