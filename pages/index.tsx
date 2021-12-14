@@ -33,8 +33,8 @@ export default function Home() {
         <title>Sponsor Avneesh</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="w-screen absolute bottom-0 rounded-b-lg mt-10 h-40 bg-[#172241]"></div>
-      <div className="sm:-mb-24 mt-20 sm:mt-0">
+      <div className="w-screen absolute bottom-0 rounded-b-lg mt-10 h-28 sm:h-40 bg-[#172241]"></div>
+      <div className="sm:-mb-24 mb-12 mt-20 sm:mt-0">
         <Image
           src="/Illustration.svg"
           alt="logo"
