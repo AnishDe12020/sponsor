@@ -7,9 +7,11 @@ const stripePromise = loadStripe(process.env.stripe_public_key!);
 
 export default function Home() {
   const [amount, setAmount] = useState<number | null>(500);
+  const [loading, setLoading] = useState<boolean>(false);
   const defaultAmounts = [200, 500, 1000];
 
   const createCheckOutSession = async () => {
+    setLoading(true);
     const stripe = await stripePromise;
 
     const checkoutSession = await axios.post("/api/create-checkout-session", {
@@ -22,6 +24,7 @@ export default function Home() {
 
     if (result?.error) {
       alert(result?.error.message);
+      setLoading(false);
     }
   };
 
@@ -74,16 +77,29 @@ export default function Home() {
             ))}
           </div>
 
-          <button
-            disabled={!amount}
-            onClick={createCheckOutSession}
-            role="link"
-            className={`bg-accent text-xl mt-4 font-semibold w-full px-6 py-3 rounded-lg ${
-              amount ? "" : "opacity-50 cursor-not-allowed"
-            }`}
-          >
-            Sponsor
-          </button>
+          {loading ? (
+            <button
+              disabled={true}
+              className="bg-accent text-xl mt-4 font-semibold w-full px-6 pt-2 pb-1 rounded-lg"
+            >
+              <div
+                style={{ borderTopColor: "transparent" }}
+                className="border-4 border-[#172241] border-solid animate-spin animate-spin inline-block w-8 h-8 rounded-full"
+                role="status"
+              ></div>
+            </button>
+          ) : (
+            <button
+              disabled={!amount || loading}
+              onClick={createCheckOutSession}
+              role="link"
+              className={`bg-accent text-xl mt-4 font-semibold w-full px-6 py-3 rounded-lg ${
+                amount ? "" : "opacity-50 cursor-not-allowed"
+              }`}
+            >
+              Sponsor
+            </button>
+          )}
         </div>
       </div>
     </div>
