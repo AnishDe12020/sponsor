@@ -56,13 +56,18 @@ export default function Home() {
             Thanks in advance. Each donation of yours means a lot, however
             little it might be!
           </p>
-          <input
-            type="number"
-            value={amount ? amount : ""}
-            className="bg-[#E9F9FA]/30 px-6 py-3 focus:outline-none text-white rounded-lg w-full"
-            placeholder="Enter Amount"
-            onChange={e => setAmount(parseInt(e.target.value))}
-          />
+          <div className="bg-[#E9F9FA]/30  flex items-center focus:outline-none text-white rounded-lg w-full">
+            <p className="bg-[#E7EAEA]/70 text-lg text-black rounded-l-lg px-4 py-3">
+              INR
+            </p>
+            <input
+              type="number"
+              value={amount ? amount : ""}
+              className="bg-transparent px-4 py-3 focus:outline-none text-white rounded-lg w-full"
+              placeholder="Enter Amount"
+              onChange={e => setAmount(parseInt(e.target.value))}
+            />
+          </div>
           <div className="flex items-center space-x-2 w-full">
             {defaultAmounts.map(buttonAmount => (
               <button
