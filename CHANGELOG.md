@@ -1,4 +1,13 @@
-# 0.1.0 (2022-01-24)
+# [1.1.0](https://github.com/avneesh0612/sponsor/compare/v0.1.0...v1.1.0) (2022-01-24)
+
+
+### Features
+
+* make more customizable ([e66caef](https://github.com/avneesh0612/sponsor/commit/e66caefedde7893334a08e7b1cd9aec542288caa))
+
+
+
+# [0.1.0](https://github.com/avneesh0612/sponsor/compare/e6b7fb612178e0fb68a017c2ed63126dea9d6869...v0.1.0) (2022-01-24)
 
 
 ### Bug Fixes
