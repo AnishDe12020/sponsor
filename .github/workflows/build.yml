@@ -25,8 +25,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Linting
-        run: yarn run lint:check
-
+        run: yarn run lint
 
   build:
     runs-on: ubuntu-latest
