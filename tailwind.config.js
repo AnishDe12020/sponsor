@@ -10,7 +10,8 @@ module.exports = {
       },
       colors: {
         accent: "#52DEE5",
-        background: "#222E50",
+        darkBlue: "#222E50",
+        darkerBlue: "#172241",
       },
     },
   },

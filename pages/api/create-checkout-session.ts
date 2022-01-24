@@ -1,9 +1,8 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+import data from "../../public/data.json";
 
 const URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://sponsor.avneesh.tech";
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : data.url;
 
 const handler = async (req: any, res: any) => {
   const { amount } = req.body;
@@ -11,9 +10,9 @@ const handler = async (req: any, res: any) => {
   const transformedItems = [
     {
       price_data: {
-        currency: "inr",
+        currency: data.currency.toLowerCase() || "inr",
         product_data: {
-          name: "Sponsoring Avneesh",
+          name: `Sponsoring ${data.name}`,
         },
         unit_amount: amount * 100,
       },
@@ -26,11 +25,8 @@ const handler = async (req: any, res: any) => {
     submit_type: "donate",
     line_items: transformedItems,
     mode: "payment",
-    success_url:
-      process.env.NODE_ENV === "development"
-        ? `${URL}/success`
-        : `${URL}/success`,
-    cancel_url: process.env.NODE_ENV === "development" ? `${URL}` : `${URL}`,
+    success_url: `${URL}/success`,
+    cancel_url: URL,
   });
 
   res.status(200).json({ id: session.id });

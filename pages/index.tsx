@@ -4,11 +4,12 @@ import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 const stripePromise = loadStripe(process.env.stripe_public_key!);
+import data from "../public/data.json";
 
 export default function Home() {
-  const [amount, setAmount] = useState<number | null>(500);
+  const [amount, setAmount] = useState<number | null>(data.defaultAmounts[1]);
   const [loading, setLoading] = useState<boolean>(false);
-  const defaultAmounts = [200, 500, 1000];
+  const defaultAmounts = data.defaultAmounts;
 
   const createCheckOutSession = async () => {
     setLoading(true);
@@ -29,12 +30,12 @@ export default function Home() {
   };
 
   return (
-    <div className="flex w-screen flex-col-reverse sm:flex-row relative min-h-screen bg-background sm:p-20 p-10 sm:justify-evenly items-center">
+    <div className="relative flex flex-col-reverse items-center w-screen min-h-screen p-10 sm:flex-row bg-darkBlue sm:p-20 sm:justify-evenly">
       <Head>
         <link rel="icon" href="/icon.svg" />
       </Head>
-      <div className="w-screen absolute bottom-0 rounded-b-lg mt-10 h-28 sm:h-40 bg-[#172241]"></div>
-      <div className="sm:-mb-24 mb-12 mt-20 sm:mt-0">
+      <div className="absolute bottom-0 w-screen mt-10 rounded-b-lg h-28 sm:h-40 bg-darkerBlue"></div>
+      <div className="mt-20 mb-12 sm:-mb-24 sm:mt-0">
         <Image
           src="/Illustration.svg"
           alt="logo"
@@ -44,12 +45,12 @@ export default function Home() {
         />
       </div>
 
-      <div className="flex flex-col items-center sm:items-start w-screen sm:w-auto sm:h-auto">
-        <div className="relative w-60 h-16">
+      <div className="flex flex-col items-center w-screen sm:items-start sm:w-auto sm:h-auto">
+        <div className="relative h-16 w-60">
           <Image src="/logo.svg" alt="logo" layout="fill" objectFit="contain" />
         </div>
-        <div className="sm:w-[436px] w-[90vw] z-50 mt-10 flex flex-col space-y-5 shadow-xl rounded-md items-center px-5 sm:px-10 p-10 bg-[#3A4462]">
-          <h2 className="font-semibold font-ClashDisplay text-3xl text-accent">
+        <div className="sm:w-[436px] w-[90vw] z-50 mt-10 flex flex-col space-y-5 shadow-xl rounded-md items-center px-5 sm:px-10 p-10 bg-white/10">
+          <h2 className="text-3xl font-semibold font-ClashDisplay text-accent">
             Love what I do? Feel free to support me with a donation!
           </h2>
           <p className="text-[#E3E3E3]">
@@ -57,19 +58,19 @@ export default function Home() {
             little it might be!
           </p>
           <div className="bg-[#E9F9FA]/30  flex items-center focus:outline-none text-white rounded-lg w-full">
-            <p className="bg-[#E7EAEA]/70 text-lg text-black rounded-l-lg px-4 py-3">
-              INR
+            <p className="bg-[#E7EAEA]/70 uppercase text-lg text-black rounded-l-lg px-4 py-3">
+              {data.currency}
             </p>
             <input
               type="number"
               value={amount ? amount : ""}
-              className="bg-transparent px-4 py-3 focus:outline-none text-white rounded-lg w-full"
+              className="w-full px-4 py-3 text-white bg-transparent rounded-lg focus:outline-none"
               placeholder="Enter Amount"
-              onChange={e => setAmount(parseInt(e.target.value))}
+              onChange={(e) => setAmount(parseInt(e.target.value))}
             />
           </div>
-          <div className="flex items-center space-x-2 w-full">
-            {defaultAmounts.map(buttonAmount => (
+          <div className="flex items-center w-full space-x-2">
+            {defaultAmounts.map((buttonAmount) => (
               <button
                 className={`${
                   amount === buttonAmount ? "bg-accent" : "bg-[#E7EAEA]/70"
@@ -85,11 +86,11 @@ export default function Home() {
           {loading ? (
             <button
               disabled={true}
-              className="bg-accent text-xl mt-4 font-semibold w-full px-6 pt-2 pb-1 rounded-lg"
+              className="w-full px-6 pt-2 pb-1 mt-4 text-xl font-semibold rounded-lg bg-accent"
             >
               <div
                 style={{ borderTopColor: "transparent" }}
-                className="border-4 border-[#172241] border-solid animate-spin animate-spin inline-block w-8 h-8 rounded-full"
+                className="inline-block w-8 h-8 border-4 border-solid rounded-full border-darkerBlue animate-spin"
                 role="status"
               ></div>
             </button>

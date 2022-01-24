@@ -1,34 +1,29 @@
 import { AppProps } from "next/app";
 import "../styles/globals.css";
 import { NextSeo } from "next-seo";
+import data from "../public/data.json";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextSeo
-        title="Sponsor Avneesh"
-        titleTemplate="Sponsor Avneesh"
-        defaultTitle="Sponsor Avneesh"
-        description="A website for sponsoring Avneesh"
+        title={`Sponsor ${data.name}`}
+        titleTemplate={`Sponsor ${data.name}`}
+        defaultTitle={`Sponsor ${data.name}`}
+        description={`A website for sponsoring ${data.name}`}
         canonical="https://www.avneesh.tech/"
         openGraph={{
           url: "https://www.avneesh.tech/",
-          title: "Sponsor Avneesh",
-          description: "A website for sponsoring Avneesh",
+          title: `Sponsor ${data.name}`,
+          description: `A website for sponsoring ${data.name}`,
           images: [
             {
               url: "/og-image.png",
               width: 800,
               height: 420,
-              alt: "Sponsor Avneesh",
+              alt: `Sponsor ${data.name}`,
             },
           ],
-          profile: {
-            firstName: "Avneesh",
-            gender: "Male",
-            lastName: "Agarwal",
-            username: "avneesh0612",
-          },
         }}
         twitter={{
           handle: "@avneesh0612",

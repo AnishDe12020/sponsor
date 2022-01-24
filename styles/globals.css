@@ -4,23 +4,8 @@
 
 @layer components {
   body {
-    @apply font-ClashDisplay overflow-x-hidden w-screen min-h-screen bg-background;
+    @apply w-screen min-h-screen overflow-x-hidden font-ClashDisplay bg-darkBlue;
   }
-}
-
-body::-webkit-scrollbar,
-.hidescrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: #52dee5;
-  border: 3px solid var(--navy);
-  border-radius: 10px;
-}
-
-body::-webkit-scrollbar-track {
-  background: #222e50 !important;
 }
 
 @font-face {
