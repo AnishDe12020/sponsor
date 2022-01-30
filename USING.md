@@ -1,4 +1,4 @@
-## Using Portfolio
+## Using Sponsor Template
 
 Click on Use this template
 ![Logo](https://cdn.hashnode.com/res/hashnode/image/upload/v1631617252765/s_PLlBQ2K.png)
