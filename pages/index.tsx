@@ -58,13 +58,13 @@ export default function Home() {
             little it might be!
           </p>
           <div className="bg-[#E9F9FA]/30 group flex items-center focus:outline-none text-white rounded-lg w-full">
-            <p className="bg-[#E7EAEA]/70 uppercase text-lg text-black rounded-l-lg px-4 py-3 group-hover:opacity-60">
+            <p className="bg-[#E7EAEA]/70 uppercase text-lg text-black rounded-l-lg px-4 py-3 opacity-80 group-hover:opacity-100 transition duration-200">
               {data.currency}
             </p>
             <input
               type="number"
               value={amount ? amount : ""}
-              className="w-full px-4 py-3 text-white bg-transparent rounded-lg focus:outline-none group-hover:opacity-60"
+              className="w-full px-4 py-3 text-white bg-transparent rounded-lg focus:outline-none opacity-80 group-hover:opacity-100 transition duration-200"
               placeholder="Enter Amount"
               onChange={(e) => setAmount(parseInt(e.target.value))}
             />
@@ -74,7 +74,7 @@ export default function Home() {
               <button
                 className={`${
                   amount === buttonAmount ? "bg-accent" : "bg-[#E7EAEA]/70"
-                }  px-6 py-3 rounded-full hover:opacity-60`}
+                }  px-6 py-3 rounded-full opacity-80 hover:opacity-100 transition duration-200`}
                 onClick={() => setAmount(buttonAmount)}
                 key={buttonAmount}
               >
@@ -86,7 +86,7 @@ export default function Home() {
             disabled={!amount || loading}
             onClick={createCheckOutSession}
             role="link"
-            className={`bg-accent text-xl mt-4 font-semibold flex justify-center hover:opacity-60 items-center w-full px-6 py-3 rounded-lg ${
+            className={`bg-accent text-xl mt-4 font-semibold flex justify-center hover:bg-transparent hover:border-accent border-2 border-accent transition duration-200 hover:text-accent items-center w-full px-6 py-3 rounded-lg ${
               amount ? "" : "opacity-50 cursor-not-allowed"
             }`}
           >
